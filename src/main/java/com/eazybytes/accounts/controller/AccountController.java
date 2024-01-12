@@ -24,10 +24,10 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDTO(AccountsConstants.MESSAGE_201, AccountsConstants.MESSAGE_201));
     }
 
-//    @GetMapping("/fetch")
-//    public ResponseEntity<CustomerDTO> fetchAccountDetails(@RequestParam String mobileNumber) {
-//        CustomerDTO customerDTO  =accountService.fetchAccountDetails(mobileNumber);
-//        return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
-//
-//    } 
+    @GetMapping("/fetch")
+    public ResponseEntity<CustomerDTO> fetchAccountDetails(@RequestParam String mobileNumber) {
+        CustomerDTO customerDTO  =accountService.fetchAccountDetails(mobileNumber);
+        return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
+
+    }
 }
