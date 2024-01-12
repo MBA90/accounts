@@ -29,5 +29,5 @@ public class AccountController {
 //        CustomerDTO customerDTO  =accountService.fetchAccountDetails(mobileNumber);
 //        return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
 //
-//    }
+//    } 
 }
