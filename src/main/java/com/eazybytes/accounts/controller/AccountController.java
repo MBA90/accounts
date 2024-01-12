@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.*;
 public class AccountController {
 
     private final AccountService accountService;
-
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> createAccount(@RequestBody CustomerDTO customerDTO) {
-
         accountService.createAccount(customerDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDTO(AccountsConstants.MESSAGE_201, AccountsConstants.MESSAGE_201));
     }
@@ -28,6 +26,5 @@ public class AccountController {
     public ResponseEntity<CustomerDTO> fetchAccountDetails(@RequestParam String mobileNumber) {
         CustomerDTO customerDTO  =accountService.fetchAccountDetails(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
-
     }
 }
