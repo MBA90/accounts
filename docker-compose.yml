@@ -1,0 +1,39 @@
+services:
+  accounts:
+    image: "mba90/accounts:v1"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+    networks:
+      - mba90
+  cards:
+    image: "mba90/cards:v1"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+    networks:
+      - mba90
+  loans:
+    image: "mba90/loans:v1"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+    networks:
+      - mba90
+
+networks:
+  mba90:
+    driver: "bridge"
+
