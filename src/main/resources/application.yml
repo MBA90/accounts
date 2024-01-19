@@ -20,3 +20,9 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
+# Enable actuator to get the actuator refresh path, so that i can read configuration properties in realtime
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
