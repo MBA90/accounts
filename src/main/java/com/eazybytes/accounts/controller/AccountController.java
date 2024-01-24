@@ -1,12 +1,14 @@
 package com.eazybytes.accounts.controller;
 
 import com.eazybytes.accounts.constants.AccountsConstants;
+import com.eazybytes.accounts.dto.ContactDetailsDTO;
 import com.eazybytes.accounts.dto.CustomerDTO;
 import com.eazybytes.accounts.dto.ResponseDTO;
 import com.eazybytes.accounts.service.AccountService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,6 +25,9 @@ public class AccountController {
 
     @Value("${build.version}")
     private String buildversion;
+
+    @Autowired
+    private ContactDetailsDTO contactDetailsDTO;
 
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
@@ -72,5 +77,12 @@ public class AccountController {
     @GetMapping("/build-info")
     public ResponseEntity<String> fetchAccountDetails() {
         return ResponseEntity.status(HttpStatus.OK).body(buildversion);
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<ContactDetailsDTO> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(contactDetailsDTO);
     }
 }
