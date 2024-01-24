@@ -18,6 +18,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+# Connect to Config Server MS AS client
   config:
     import: "optional:configserver:http://localhost:8071/"
 # Enable actuator to get the actuator refresh path, so that i can read configuration properties in realtime
