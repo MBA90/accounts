@@ -9,7 +9,7 @@ services:
         limits:
           memory: 500m
     networks:
-      - mba90
+      - mba90 
   cards:
     image: "mba90/cards:v1"
     container_name: cards-ms
